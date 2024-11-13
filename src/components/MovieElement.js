@@ -1,9 +1,10 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom';
 
 const MovieElement = ({el}) => {
     const IMG_PATH = "https://image.tmdb.org/t/p/w1280";
     return (
+      <Link to={`/trailer/${el.id}`}  >
     <div className='movie'>
           <img src={IMG_PATH + `${el.poster_path}`} alt={el.title} />
 
@@ -16,6 +17,7 @@ const MovieElement = ({el}) => {
       Overview
     </div>
     </div>
+    </Link>
   )
 }
 

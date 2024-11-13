@@ -5,6 +5,9 @@ import Footer from './components/Footer';
 import { Data } from './Data';
 import { useState } from 'react';
 import Form from './components/Form';
+import Description from './Description';
+import {Routes, Route} from 'react-router-dom';
+
 
 function App() {
   const [Movie, setMovie] = useState(Data);
@@ -20,8 +23,11 @@ function App() {
   return (
     <div>
       <Header setNameSearch={setNameSearch} />
-      <Main Movie={Movie} nameSearch={nameSearch} />
-      <Form addMovie={addMovie} />
+      <Routes>
+       <Route path='/' element={      <Main Movie={Movie} nameSearch={nameSearch} />} /> 
+      <Route path='/add' element={<Form addMovie={addMovie} />} />
+      <Route path='/trailer/:id' element={<Description/>} />
+      </Routes>
       <Footer />
     </div>
   );
